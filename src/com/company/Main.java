@@ -1,38 +1,40 @@
 package com.company;
 
+import com.company.util.IsValidInputException;
+import com.company.util.StringUtil;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // Homework Java String Introduction
         String A = sc.nextLine();
         String B = sc.nextLine();
-        System.out.println("The A and B length Sum is = " + sumStringLengths(A, B));
-        System.out.println("Lexicographically A is greater Than B ? " + compareTo(A, B));
-        concatStringAndPrint(A,B);
-    }
+        System.out.println("The A and B length Sum is = " + StringUtil.sumStringLengths(A, B));
+        System.out.println("Lexicographically A is greater Than B ? " + StringUtil.compareTo(A, B));
+        System.out.println(StringUtil.concatString(A, B, " "));
 
-    static int sumStringLengths(String a, String b) {
-        char[] x = a.toCharArray();
-        char[] y = b.toCharArray();
-        int lengthSum = x.length + y.length;
-        return lengthSum;
-    }
-
-    static String compareTo(String a, String b) {
-        if (a.compareTo(b) > 0) {
-            return "Yes";
+        // Homework Is Strings are Anagram with sort algorithm
+        try {
+            if(StringUtil.isAnagramWithSort(A, B)) {
+                System.out.println("The strings are anagram ");
+            }else {
+                System.out.println("The strings are not anagram ");
+            }
+        } catch (IsValidInputException e) {
+            System.out.println(e.getMessage());
         }
-        return "No";
-    }
-
-    static void concatStringAndPrint (String a, String b){
-        a = a.substring(0,1).toUpperCase() + a.substring(1);
-        b = b.substring(0,1).toUpperCase() + b.substring(1);
-        a = a + " " + b;
-        System.out.println(a);
-
-
+        // Homework Is Strings are Anagram with count char values algorithm
+        try {
+            if(StringUtil.isAnagramWithCount(A, B)) {
+                System.out.println("The strings are anagram ");
+            }else {
+                System.out.println("The strings are not anagram ");
+            }
+        } catch (IsValidInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
