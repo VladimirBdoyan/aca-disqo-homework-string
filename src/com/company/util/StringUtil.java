@@ -1,6 +1,9 @@
 package com.company.util;
 
 
+import com.company.constant.Constants;
+import com.company.exception.ValidationException;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Vladimir
@@ -22,13 +25,13 @@ public class StringUtil {
         return "No";
     }
 
-    public static String concatString(String a, String b, String separator) {
+    public static String capitalizeString(String a, String b, String separator) {
         a = a.substring(0, 1).toUpperCase() + a.substring(1);
         b = b.substring(0, 1).toUpperCase() + b.substring(1);
         return a + separator + b;
     }
 
-    public static boolean isAnagramWithSort(String a, String b) throws IsValidInputException {
+    public static boolean isAnagramWithSort(String a, String b) throws ValidationException {
 
         // test for invalid input and initial quick test for non-anagrams
         if (isValidInput(a, b)) {
@@ -47,13 +50,13 @@ public class StringUtil {
                 }
             }
         } else {
-            throw new IsValidInputException("Not Valid input Arguments");
+            throw new ValidationException("Not Valid input Arguments");
         }
         return true;
     }
 
 
-    public static boolean isAnagramWithCount(String a, String b) throws IsValidInputException {
+    public static boolean isAnagramWithCount(String a, String b) throws ValidationException {
         // test for invalid input and initial quick test for non-anagrams
         if (isValidInput(a, b)) {
 
@@ -76,7 +79,7 @@ public class StringUtil {
                 }
             }
         } else {
-            throw new IsValidInputException("Not Valid input Arguments");
+            throw new ValidationException("Not Valid input Arguments");
         }
         return true;
     }

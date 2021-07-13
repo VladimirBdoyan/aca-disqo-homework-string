@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.util.IsValidInputException;
+import com.company.exception.ValidationException;
 import com.company.util.StringUtil;
 
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class Main {
         String B = sc.nextLine();
         System.out.println("The A and B length Sum is = " + StringUtil.sumStringLengths(A, B));
         System.out.println("Lexicographically A is greater Than B ? " + StringUtil.compareTo(A, B));
-        System.out.println(StringUtil.concatString(A, B, " "));
+        System.out.println(StringUtil.capitalizeString(A, B, " "));
 
         // Homework Is Strings are Anagram with sort algorithm
         try {
@@ -23,7 +23,7 @@ public class Main {
             }else {
                 System.out.println("The strings are not anagram ");
             }
-        } catch (IsValidInputException e) {
+        } catch (ValidationException e) {
             System.out.println(e.getMessage());
         }
         // Homework Is Strings are Anagram with count char values algorithm
@@ -33,7 +33,7 @@ public class Main {
             }else {
                 System.out.println("The strings are not anagram ");
             }
-        } catch (IsValidInputException e) {
+        } catch (ValidationException e) {
             System.out.println(e.getMessage());
         }
     }
